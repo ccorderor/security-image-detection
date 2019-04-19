@@ -126,15 +126,19 @@ const classify = async (path, res) => {
 
       let imgbuffer = image2
         .overlayWith(svgElementBuffer, { top: 0, left: 0 })
-        .toFile(outputFile);
+        .toFile(outputFile)
+        .then(function(uuidFile) {
 
-      let response = {
-        result: "DETECTED",
-        predictions: predictions,
-        uuid: uuidFile
-      };
+            let response = {
+                result: "DETECTED",
+                predictions: predictions,
+                uuid: uuidFile
+              };
+        
+              res.send(JSON.stringify(response));
 
-      res.send(JSON.stringify(response));
+        });
+
     });
   } else {
     let response = { result: "NOT_DETECTED" };

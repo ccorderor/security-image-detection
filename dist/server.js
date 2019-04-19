@@ -136,13 +136,15 @@ var classify = function (path, res) { return __awaiter(_this, void 0, void 0, fu
                         var outputFile = "tmpimages/" + uuidFile + ".png";
                         var imgbuffer = image2_1
                             .overlayWith(svgElementBuffer, { top: 0, left: 0 })
-                            .toFile(outputFile);
-                        var response = {
-                            result: "DETECTED",
-                            predictions: predictions,
-                            uuid: uuidFile
-                        };
-                        res.send(JSON.stringify(response));
+                            .toFile(outputFile)
+                            .then(function (uuidFile) {
+                            var response = {
+                                result: "DETECTED",
+                                predictions: predictions,
+                                uuid: uuidFile
+                            };
+                            res.send(JSON.stringify(response));
+                        });
                     });
                 }
                 else {
