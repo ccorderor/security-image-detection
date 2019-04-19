@@ -1,0 +1,27 @@
+{
+  "name": "tensorflow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/server",
+  "types": "./dist/server",
+  "scripts": {
+    "dev": "tsc --watch & nodemon dist/server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tensorflow-models/coco-ssd": "^1.0.0",
+    "@tensorflow-models/mobilenet": "^1.0.0",
+    "@tensorflow/tfjs": "^1.0.4",
+    "@tensorflow/tfjs-node": "^1.0.3",
+    "@tensorflow/tfjs-node-gpu": "^1.0.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "jpeg-js": "^0.3.4",
+    "nodemon": "^1.18.11",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "sharp": "^0.21.3",
+    "uuid": "^3.3.2"
+  }
+}
