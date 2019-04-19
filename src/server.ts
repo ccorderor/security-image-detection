@@ -13,8 +13,8 @@ const express = require("express");
 const app = express();
 
 const bodyParser = require("body-parser");
-app.use(bodyParser.json()); 
-app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 /**
  * Tensowflow logic
@@ -162,12 +162,11 @@ app.get("/image/:uuid", function(req, res) {
   const filePath = "tmpimages/" + reqUuid + ".png";
   try {
     const buf = fs.readFileSync(filePath);
+    res.writeHead(200, { "Content-Type": "image/png" });
+    res.end(buf, "binary");
   } catch (err) {
     res.status(404);
   }
-
-  res.writeHead(200, { "Content-Type": "image/png" });
-  res.end(buf, "binary");
 });
 
 app.listen(3000, () => {

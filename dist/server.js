@@ -171,12 +171,12 @@ app.get("/image/:uuid", function (req, res) {
     var filePath = "tmpimages/" + reqUuid + ".png";
     try {
         var buf = fs.readFileSync(filePath);
+        res.writeHead(200, { "Content-Type": "image/png" });
+        res.end(buf, "binary");
     }
     catch (err) {
         res.status(404);
     }
-    res.writeHead(200, { "Content-Type": "image/png" });
-    res.end(buf, "binary");
 });
 app.listen(3000, function () {
     console.log("Server online. Port 3000");
