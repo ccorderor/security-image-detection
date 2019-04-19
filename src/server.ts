@@ -127,7 +127,7 @@ const classify = async (path, res) => {
       let imgbuffer = image2
         .overlayWith(svgElementBuffer, { top: 0, left: 0 })
         .toFile(outputFile)
-        .then(function(uuidFile) {
+        .then(function(file) {
 
             let response = {
                 result: "DETECTED",

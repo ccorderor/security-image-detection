@@ -137,7 +137,7 @@ var classify = function (path, res) { return __awaiter(_this, void 0, void 0, fu
                         var imgbuffer = image2_1
                             .overlayWith(svgElementBuffer, { top: 0, left: 0 })
                             .toFile(outputFile)
-                            .then(function (uuidFile) {
+                            .then(function (file) {
                             var response = {
                                 result: "DETECTED",
                                 predictions: predictions,
