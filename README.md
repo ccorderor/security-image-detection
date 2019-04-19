@@ -1,6 +1,9 @@
-# security-image-detection
-Uses tensorflow to detect objects
+# Security Image Detection
 
-# Spanish
+## Spanish
 
-# English
+La idea básica del proyecto es integrar [**Tensorflow**](https://www.tensorflow.org/) en un sencillo API para poder localizar objetos en imágenes de mis cámaras de seguridad.
+
+## English
+
+TODO
