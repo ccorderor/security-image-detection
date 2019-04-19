@@ -45,6 +45,7 @@ var cocoSsd = require("@tensorflow-models/coco-ssd");
 var uuidv4 = require("uuid/v4");
 var express = require("express");
 var app = express();
+var path = require('path');
 var bodyParser = require("body-parser");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -166,18 +167,8 @@ app.post("/detect", function (req, res) {
         });
     });
 });
-app.get("/image/:uuid", function (req, res) {
-    var reqUuid = req.params.uuid;
-    var filePath = "tmpimages/" + reqUuid + ".png";
-    try {
-        var buf = fs.readFileSync(filePath);
-        res.writeHead(200, { "Content-Type": "image/png" });
-        res.end(buf, "binary");
-    }
-    catch (err) {
-        res.status(404);
-    }
-});
+var public = path.join(__dirname, '../tmpimages');
+app.use('/tmpimages/', express.static(public));
 app.listen(3000, function () {
     console.log("Server online. Port 3000");
 });
